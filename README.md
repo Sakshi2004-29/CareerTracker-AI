@@ -1,3 +1,5 @@
+# CareerTracker-AI
+AI-powered career management and resume matching application
 # 🧭 CareerTrack AI
 
 An AI-powered job application manager. Save applications, track their status, get follow-up reminders with
