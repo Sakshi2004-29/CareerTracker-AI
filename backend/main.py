@@ -604,7 +604,7 @@ def login(payload: AuthCredentials):
     except HTTPException:
         raise
     except Exception as exc:
-        logger.warning("Login failed: %s", type(exc).__name__)
+        logger.exception("Login failed")
         raise HTTPException(status_code=401, detail="Login failed. Check your credentials and confirm your email address.")
 
 @auth_api.post("/forgot-password", tags=["authentication"])
@@ -613,7 +613,7 @@ def forgot_password(payload: EmailRequest):
         auth.request_password_reset(payload.email)
         return {"message": "If the account exists, a password recovery email will be sent."}
     except Exception as exc:
-        logger.warning("Password reset request failed: %s", type(exc).__name__)
+        logger.exception("Password reset request failed")
         raise HTTPException(status_code=400, detail="Could not request a password reset. Please try again.")
 
 app.include_router(api)
