@@ -1,0 +1,58 @@
+[
+  {
+    "company_name": "Nimbus Analytics", "job_title": "Junior Data Analyst",
+    "job_description": "Nimbus Analytics is hiring a Junior Data Analyst in Pune. You will analyse customer data using SQL and Python, build Power BI dashboards and present insights to product teams. Requirements: 0-2 years of experience, strong SQL, Python (pandas), good communication.",
+    "job_url": "https://example.com/jobs/nimbus-data-analyst", "location": "Pune",
+    "status_path": ["Applied"], "applied_days_ago": 12, "follow_up_in_days": -2,
+    "notes": "Referred by a college senior.", "resume_version": "v2-data"
+  },
+  {
+    "company_name": "Brightwave Systems", "job_title": "Embedded Software Engineer",
+    "job_description": "Brightwave Systems builds smart energy meters. Write C/C++ firmware for ARM Cortex-M devices, work with RTOS, I2C, SPI and UART, and debug hardware with oscilloscopes. Requirements: 1-3 years of experience, B.E./B.Tech in Electronics or E&TC.",
+    "job_url": "https://example.com/jobs/brightwave-embedded", "location": "Bengaluru",
+    "status_path": ["Applied", "Assessment", "Interview"], "applied_days_ago": 20, "follow_up_in_days": 2,
+    "notes": "Technical round on Friday. Revise RTOS basics.", "resume_version": "v3-embedded"
+  },
+  {
+    "company_name": "Quantora Labs", "job_title": "Python Developer Intern",
+    "job_description": "Quantora Labs is looking for a Python Developer Intern to build REST APIs with FastAPI and PostgreSQL, write unit tests and collaborate using Git. Remote friendly. Final-year students welcome.",
+    "job_url": "https://example.com/jobs/quantora-intern", "location": "Remote",
+    "status_path": [], "applied_days_ago": null, "follow_up_in_days": 5,
+    "notes": "Deadline next week.", "resume_version": "v1-general"
+  },
+  {
+    "company_name": "Greenfield Robotics", "job_title": "IoT Engineer",
+    "job_description": "Design sensor networks using ESP32 and MQTT, integrate devices with cloud dashboards and optimise power consumption. Requirements: 1-2 years of experience, C/C++ or MicroPython, networking basics.",
+    "job_url": "https://example.com/jobs/greenfield-iot", "location": "Hyderabad",
+    "status_path": ["Applied", "Interview", "Offer"], "applied_days_ago": 30, "follow_up_in_days": null,
+    "notes": "Offer received - decide by month end.", "resume_version": "v3-embedded"
+  },
+  {
+    "company_name": "Lumen Telecom", "job_title": "Network Engineer Trainee",
+    "job_description": "Support 4G/5G RAN deployment and troubleshooting. Knowledge of signal processing, TCP/IP and basic Linux required. Fresh graduates may apply.",
+    "job_url": "https://example.com/jobs/lumen-trainee", "location": "Mumbai",
+    "status_path": ["Applied", "Rejected"], "applied_days_ago": 25, "follow_up_in_days": null,
+    "notes": "Rejected after the aptitude round.", "resume_version": "v1-general"
+  },
+  {
+    "company_name": "Orbit Payments", "job_title": "Backend Engineer",
+    "job_description": "Build secure payment APIs in Python. Requirements: 2+ years of experience with Django or FastAPI, PostgreSQL, Docker and unit testing. Experience with AWS is a plus.",
+    "job_url": "https://example.com/jobs/orbit-backend", "location": "Pune",
+    "status_path": ["Applied", "Assessment"], "applied_days_ago": 8, "follow_up_in_days": 1,
+    "notes": "Online coding test link received.", "resume_version": "v2-data"
+  },
+  {
+    "company_name": "Vertex Embedded", "job_title": "Firmware Intern",
+    "job_description": "Assist with PCB bring-up and firmware testing on STM32 boards. Hands-on lab experience with C and a multimeter/oscilloscope is required.",
+    "job_url": "https://example.com/jobs/vertex-intern", "location": "Chennai",
+    "status_path": ["Applied", "Withdrawn"], "applied_days_ago": 15, "follow_up_in_days": null,
+    "notes": "Withdrew - accepted another offer.", "resume_version": "v3-embedded"
+  },
+  {
+    "company_name": "Cobalt Cloud", "job_title": "Cloud Support Associate",
+    "job_description": "Help customers troubleshoot cloud services, write runbooks and escalate incidents. Requirements: 0-1 years of experience, Linux, networking fundamentals, clear written English.",
+    "job_url": "https://example.com/jobs/cobalt-support", "location": "Remote",
+    "status_path": ["Applied"], "applied_days_ago": 6, "follow_up_in_days": 0,
+    "notes": "Follow up today if no reply.", "resume_version": "v1-general"
+  }
+]

@@ -1,0 +1,36 @@
+# Render Blueprint - deploys the FastAPI backend.
+# Render dashboard -> New -> Blueprint -> pick your GitHub repo.
+services:
+  - type: web
+    name: careertrack-ai-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: ENVIRONMENT
+        value: production
+      - key: DEMO_MODE
+        value: "false"
+      - key: ALLOW_DEMO_SEED
+        value: "false"
+      - key: APP_TIMEZONE
+        value: UTC
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      # Render generates a random value; copy it into Streamlit secrets as BACKEND_API_KEY.
+      - key: BACKEND_API_KEY
+        generateValue: true
+      # You are asked to type these in the Render dashboard (never stored in git):
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false

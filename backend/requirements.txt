@@ -1,0 +1,10 @@
+# Backend dependencies (FastAPI + Supabase + Gemini)
+# Tested with: fastapi 0.162, uvicorn 0.54, pydantic 2.14, supabase 2.33, google-genai 2.33
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+python-dotenv>=1.0
+supabase>=2.10
+google-genai>=1.0
+tzdata>=2024.1
+python-multipart

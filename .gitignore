@@ -1,0 +1,33 @@
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+
+# Streamlit secrets
+.streamlit/secrets.toml
+.streamlit/secrets/
+
+# Logs and local system files
+*.log
+.DS_Store
+Thumbs.db
+
+# Local uploaded or private data
+uploads/
+backend/uploads/
+backend/resumes/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
