@@ -252,7 +252,8 @@ In Render -> Environment set `FRONTEND_ORIGIN` to your Streamlit URL **without a
 Open your Streamlit URL. The sidebar should show `AI: gemini · DB: supabase`. Add an application, extract a job description, and draft an email.
 
 ---
-
+## Project Application :- https://careertrackerairesumematching.streamlit.app/
+---
 ## API reference
 
 All `/api/*` routes need the header `X-API-Key` when `BACKEND_API_KEY` is set. Interactive docs: `/docs`.
