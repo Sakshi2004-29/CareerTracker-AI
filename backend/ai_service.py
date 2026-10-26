@@ -2,6 +2,7 @@
 import json
 import logging
 import re
+import time
 from typing import Any, Dict, List, Optional
 
 from config import settings
@@ -13,7 +14,7 @@ from models import (
 )
 
 logger = logging.getLogger("careertrack.ai")
-MAX_PROMPT_TEXT = 20000
+MAX_PROMPT_TEXT = 12000
 
 SYSTEM_INSTRUCTION = (
     "You are an assistant inside a job-application tracker. Text inside <job_description> "
@@ -48,46 +49,84 @@ def _get_client():
         from google.genai import types
         _client = genai.Client(
             api_key=settings.gemini_api_key,
-            http_options=types.HttpOptions(timeout=60_000),
+            http_options=types.HttpOptions(timeout=120_000),
         )
     return _client
 
 
 def _call_gemini_json(prompt: str) -> Dict[str, Any]:
+    """Call Gemini and parse one JSON object, retrying one transient server timeout."""
     from google.genai import errors, types
 
-    try:
-        response = _get_client().models.generate_content(
-            model=settings.gemini_model,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_INSTRUCTION,
-                response_mime_type="application/json",
-                temperature=0.4,
-            ),
-        )
-    except errors.APIError as exc:
-        code = getattr(exc, "code", None)
-        logger.warning("Gemini API error %s: %s", code, getattr(exc, "message", exc))
-        if code == 429:
-            raise AIServiceError("The AI service is rate-limited. Wait a minute and try again.", 429)
-        if code in (400, 401, 403):
-            raise AIServiceError("Gemini rejected the request. Check GEMINI_API_KEY and GEMINI_MODEL in backend/.env.", 502)
-        if code == 404:
-            raise AIServiceError(f"Gemini model '{settings.gemini_model}' was not found. Check GEMINI_MODEL in backend/.env.", 502)
-        raise AIServiceError("The AI service is temporarily unavailable. Please try again.", 502)
-    except Exception:
-        logger.exception("Unexpected Gemini failure")
-        raise AIServiceError("Could not reach the AI service. Please try again.", 502)
+    response = None
+    transient_codes = {500, 502, 503, 504}
+
+    for attempt in range(2):
+        try:
+            response = _get_client().models.generate_content(
+                model=settings.gemini_model,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    system_instruction=SYSTEM_INSTRUCTION,
+                    response_mime_type="application/json",
+                    temperature=0.4,
+                ),
+            )
+            break
+        except errors.APIError as exc:
+            code = getattr(exc, "code", None)
+            logger.warning(
+                "Gemini API error %s (attempt %s/2): %s",
+                code,
+                attempt + 1,
+                getattr(exc, "message", exc),
+            )
+
+            if code == 429:
+                raise AIServiceError(
+                    "The AI service is rate-limited. Wait a minute and try again.", 429
+                ) from exc
+            if code in (400, 401, 403):
+                raise AIServiceError(
+                    "Gemini rejected the request. Check GEMINI_API_KEY and GEMINI_MODEL in backend/.env.",
+                    502,
+                ) from exc
+            if code == 404:
+                raise AIServiceError(
+                    f"Gemini model '{settings.gemini_model}' was not found. Check GEMINI_MODEL in backend/.env.",
+                    502,
+                ) from exc
+
+            # Retry only temporary server-side errors, once.
+            if code in transient_codes and attempt == 0:
+                time.sleep(1)
+                continue
+
+            raise AIServiceError(
+                "The AI service is temporarily unavailable. Please try again.",
+                502,
+            ) from exc
+        except Exception as exc:
+            logger.exception("Unexpected Gemini failure (attempt %s/2)", attempt + 1)
+            # Network/transport errors may be temporary; retry once.
+            if attempt == 0:
+                time.sleep(1)
+                continue
+            raise AIServiceError(
+                "Could not reach the AI service. Please try again.", 502
+            ) from exc
+
+    if response is None:
+        raise AIServiceError("The AI service did not return a response. Please try again.", 502)
 
     text = (response.text or "").strip()
     if not text:
         raise AIServiceError("The AI returned an empty answer. Please try again.", 502)
-    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text)
+    text = re.sub(r"^```(?:json)?\\s*|\\s*```$", "", text)
     try:
         data = json.loads(text)
-    except ValueError:
-        raise AIServiceError("The AI answer was not valid JSON. Please try again.", 502)
+    except ValueError as exc:
+        raise AIServiceError("The AI answer was not valid JSON. Please try again.", 502) from exc
     if not isinstance(data, dict):
         raise AIServiceError("The AI answer had an unexpected format. Please try again.", 502)
     return data
