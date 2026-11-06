@@ -1,132 +1,280 @@
-# 🚀 CareerTrack AI – AI-Powered Career & Job Application Management System
+# 🚀 CareerTrack AI
+### AI-Powered Career & Job Application Management System
 
-<br>
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python" />
+  <img src="https://img.shields.io/badge/Streamlit-Frontend-red?logo=streamlit" />
+  <img src="https://img.shields.io/badge/FastAPI-Backend-green?logo=fastapi" />
+  <img src="https://img.shields.io/badge/Google%20Gemini-AI-blue?logo=google" />
+  <img src="https://img.shields.io/badge/Supabase-Database-green?logo=supabase" />
+  <img src="https://img.shields.io/badge/Status-Working-success" />
+</p>
 
-## 🎯 Problem Statement
+<p align="center">
+  <b>Track Applications • Analyze Resumes • Prepare for Interviews • Manage Your Career</b>
+</p>
 
-Managing multiple job applications can become difficult for students and job seekers. Tracking application statuses, remembering follow-ups, preparing for interviews, and analyzing job opportunities manually can be time-consuming.
+<p align="center">
+  <a href="https://careertrackerairesumematching.streamlit.app/">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_CareerTrack_AI-purple?style=for-the-badge" />
+  </a>
+</p>
 
-CareerTrack AI solves this problem by:
-
-✦ Organizing job applications in one centralized platform
-
-✦ Automating job description information extraction using AI
-
-✦ Generating personalized follow-up emails
-
-✦ Preparing role-specific interview questions
-
-✦ Providing analytics to track application progress
-
-<br>
+---
 
 ## 📌 Overview
 
-CareerTrack AI is an AI-powered career management platform that helps users organize, track, and manage their job applications efficiently.
+**CareerTrack AI** is an AI-powered career management platform designed to help students, freshers, and job seekers organize their job applications and prepare for career opportunities.
 
-The repository includes:
+Instead of managing applications through multiple spreadsheets, notes, and separate tools, CareerTrack AI brings important job search activities together in one centralized platform.
 
-● Streamlit frontend application
+It combines application tracking, resume management, AI-powered resume matching, interview preparation, follow-up email generation, and career analytics to make the job search process more organized and efficient.
 
-● FastAPI backend with REST APIs
+---
 
-● Supabase PostgreSQL database integration
+## 🎯 Problem Statement
 
-● Gemini-powered job description extraction
+Managing multiple job applications can become challenging, especially for students and freshers applying to different companies simultaneously.
 
-● AI-generated follow-up email drafts
+Some common problems include:
 
-● Role-specific interview question generation
+- Keeping track of multiple job applications and their statuses.
+- Remembering application dates and follow-up activities.
+- Understanding whether a resume matches a job description.
+- Identifying skills that need improvement.
+- Preparing for interviews based on specific job roles.
+- Writing professional follow-up emails.
+- Understanding overall job application progress.
 
-● Application status tracking and history
+CareerTrack AI addresses these challenges by providing a centralized platform with AI-assisted career preparation and application management.
 
-● Career analytics dashboard
+---
 
-● Demo mode with SQLite and sample applications
+## 💡 What CareerTrack AI Does
 
-<br>
+CareerTrack AI helps users manage their job search through a simple workflow:
 
-## 🚀 Live Demo
+1. **Add Applications** – Save company names, job roles, application dates, and statuses.
+2. **Manage Resumes** – Upload and organize resumes.
+3. **Analyze Job Descriptions** – Extract important job information using AI.
+4. **Match Resumes** – Compare resumes with job descriptions and identify matching skills.
+5. **Prepare for Interviews** – Generate interview questions based on selected job roles.
+6. **Draft Follow-up Emails** – Create professional email drafts using AI.
+7. **Track Progress** – View application statistics and career analytics.
 
-https://careertrackerairesumematching.streamlit.app/
+---
 
-<br>
-
-## ✨ Key Features
+## ✨ Features
 
 | Feature | Description |
 |---|---|
-| **Application Dashboard** | Track total applications, interviews, offers, and rejections |
-| **Job Application Management** | Add, edit, delete, and organize applications |
-| **AI Job Description Extraction** | Extract company, role, skills, location, and experience from job descriptions |
-| **Application Tracking** | Monitor application statuses and maintain application history |
-| **Follow-Up Assistant** | Generate personalized follow-up email drafts using AI |
-| **Interview Preparation** | Generate role-specific interview questions |
-| **Career Analytics** | Analyze application trends, interview rates, and offer rates |
-| **Search & Filtering** | Filter applications by company, role, status, and date |
+| 📊 **Application Dashboard** | View application statistics, interviews, offers, and rejections. |
+| 📝 **Job Application Management** | Add, edit, delete, and organize job applications. |
+| 📄 **Resume Management** | Upload and manage resumes through the platform. |
+| 🤖 **AI Job Description Extraction** | Extract company, role, skills, location, and experience from job descriptions. |
+| 🎯 **AI Resume Matching** | Analyze resume and job description alignment with a match score and AI-generated summary. |
+| 🧠 **Matching Skills Analysis** | Identify matching skills and skills that may need improvement. |
+| 🎤 **Interview Preparation** | Generate Technical, Behavioral, Role-specific, and Company & Motivation questions. |
+| 📧 **Follow-up Assistant** | Generate editable, personalized follow-up email drafts. |
+| 📈 **Career Analytics** | Analyze application trends, interview rates, and offer rates. |
+| 🔍 **Search & Filtering** | Filter applications by company, role, status, and date. |
+| 📚 **Application History** | Maintain a history of application status changes. |
 
-<br>
+---
 
 ## 🧠 AI Integration
 
-CareerTrack AI uses Google Gemini to provide intelligent career assistance.
+CareerTrack AI integrates **Google Gemini API** to provide intelligent career assistance.
 
-✦ Extracts important information from job descriptions
+### AI-Powered Capabilities
 
-✦ Generates personalized follow-up email drafts
+- **Job Description Extraction:** Extracts important information such as company, role, required skills, location, and experience.
+- **Resume Matching:** Analyzes resume content against job requirements and generates a match score, summary, matching skills, and skills to review.
+- **Interview Preparation:** Generates role-specific interview questions across different categories.
+- **Follow-up Email Generation:** Creates professional follow-up email drafts based on application information.
 
-✦ Creates interview preparation questions
+> AI-generated outputs are intended to support career preparation. Resume match scores are estimates and do not guarantee interview selection or job offers.
 
-✦ Helps users manage their job application workflow
-
-<br>
+---
 
 ## 🏗️ System Architecture
 
-Browser → Streamlit Frontend → FastAPI Backend → Supabase PostgreSQL
+CareerTrack AI follows a frontend-backend architecture with separate database and AI integrations.
 
-                                                                 └── Google Gemini API
+```mermaid
+flowchart TD
+    A[User / Browser] --> B[Streamlit Frontend]
+    B --> C[FastAPI Backend]
 
-<br>
+    C --> D[Supabase PostgreSQL]
+    C --> E[Google Gemini API]
+
+    D --> F[Application Data]
+    D --> G[Authentication]
+
+    E --> H[Resume Matching]
+    E --> I[Interview Questions]
+    E --> J[Follow-up Email Drafts]
+    E --> K[Job Description Extraction]
+
+    C --> B
+    B --> L[Results displayed to User]
+```
+
+### Architecture Components
+
+| Component | Purpose |
+|---|---|
+| **Streamlit** | Provides the interactive user interface. |
+| **FastAPI** | Handles backend logic and REST API requests. |
+| **Supabase** | Provides PostgreSQL database and authentication services. |
+| **Google Gemini API** | Generates AI-powered analysis and career assistance. |
+| **GitHub** | Stores and manages the project source code. |
+| **Render** | Hosts the FastAPI backend. |
+| **Streamlit Community Cloud** | Hosts the frontend application. |
+
+### Application Workflow
+
+1. The user interacts with the Streamlit frontend.
+2. Streamlit sends API requests to FastAPI.
+3. FastAPI processes the request and connects to the required services.
+4. Supabase handles database operations when required.
+5. Gemini generates AI responses when required.
+6. FastAPI returns the response to Streamlit.
+7. Streamlit displays the results to the user.
+
+---
 
 ## 🛠️ Tech Stack
 
-1) Python
+### Frontend
+- Python
+- Streamlit
 
-2) Streamlit
+### Backend
+- Python
+- FastAPI
+- Uvicorn
+- Pydantic
+- REST APIs
 
-3) FastAPI
+### AI / Generative AI
+- Google Gemini API
 
-4) Pydantic
+### Database & Authentication
+- Supabase
+- PostgreSQL
+- SQLite (Demo Mode)
 
-5) Google Gemini API
+### Deployment & Version Control
+- Streamlit Community Cloud
+- Render
+- GitHub
 
-6) Supabase PostgreSQL
-
-7) SQLite
-
-8) REST API
-
-<br>
+---
 
 ## 🌍 Real-World Applications
 
-💼 Job application management for students and freshers
+CareerTrack AI can be useful for:
 
-💼 Career planning and application tracking
+- 🎓 Students managing internship and placement applications.
+- 💼 Freshers tracking job opportunities across companies.
+- 📄 Job seekers analyzing resume-to-job alignment.
+- 🎤 Candidates preparing for role-specific interviews.
+- 📈 Individuals monitoring their job search progress.
+- 🗂️ Users organizing their career preparation activities.
 
-💼 Interview preparation
+---
 
-💼 Recruitment preparation workflows
+## 🚀 Live Application
 
-💼 Personalized job search management
+Try CareerTrack AI here:
 
-<br>
+### 👉 [Open CareerTrack AI](https://careertrackerairesumematching.streamlit.app/)
+
+The application is deployed online with a Streamlit frontend and FastAPI backend.
+
+---
+
+## 📂 Repository Structure
+
+```text
+CareerTracker-AI/
+│
+├── backend/
+│   ├── main.py
+│   ├── ai_service.py
+│   └── ...
+│
+├── frontend/
+│   ├── app.py
+│   └── ...
+│
+├── requirements.txt
+├── README.md
+└── ...
+```
+
+*The repository structure may evolve as additional features and improvements are introduced.*
+
+---
+
+## 🔐 Security & Configuration
+
+CareerTrack AI uses environment variables and application secrets to manage sensitive configuration values.
+
+- Gemini API keys are configured through environment variables.
+- Supabase credentials are configured securely.
+- Backend configuration is managed through Render environment variables.
+- Frontend configuration is managed through Streamlit secrets.
+
+**Never commit API keys, passwords, or private credentials to GitHub.**
+
+---
+
+## 🔮 Future Scope
+
+Potential improvements for CareerTrack AI include:
+
+- 📅 Application follow-up reminders.
+- 📄 Downloadable application reports.
+- 📊 Enhanced career analytics and visualizations.
+- 🎯 Improved resume analysis and job matching.
+- 🧠 Retrieval-Augmented Generation (RAG) for more context-aware career assistance.
+- 📚 Personalized interview preparation based on resume and job requirements.
+- 🔔 Application deadline notifications.
+
+*These are possible future enhancements and are not currently claimed as implemented.*
+
+---
 
 ## 🏁 Conclusion
 
-CareerTrack AI simplifies job application management by combining application tracking, AI-powered assistance, interview preparation, and analytics in a single platform.
+CareerTrack AI combines job application tracking, resume analysis, interview preparation, follow-up email generation, and career analytics into one platform.
 
-The system helps students and job seekers stay organized, prepare better for interviews, and manage their career opportunities more efficiently.
+By bringing these activities together, it aims to help students and job seekers stay organized, understand job requirements, prepare more effectively, and manage their career opportunities with greater confidence.
 
-<br>
+---
+
+## 👩‍💻 Developed By
+
+**Sakshi Patil**
+
+B.Tech – Electronics & Telecommunication Engineering
+
+MIT Academy of Engineering, Alandi, Pune
+
+### 🔗 Project Links
+
+- 🌐 **Live Application:** [CareerTrack AI](https://careertrackerairesumematching.streamlit.app/)
+- 💻 **GitHub Repository:** [CareerTracker-AI](https://github.com/Sakshi2004-29/CareerTracker-AI)
+
+---
+
+<p align="center">
+  ⭐ If you find this project interesting, consider starring the repository!
+</p>
+
+<p align="center">
+  <b>CareerTrack AI — Your Career, Organized.</b>
+</p>
